@@ -3716,7 +3716,7 @@ Good luck — and have fun coding! 🚀`,
                             ? "📊 پیشرفت من\n\n" +
                             "📚 پیشرفت یادگیری\n\n" +
                             `🎓 درس‌های تکمیل‌شده: ${completedLessons}/${totalLessons}\n` +
-                            `🎯 درس فعلی: ${currentLesson
+                            `🎯 درس بعدی: ${currentLesson
                                 ? currentLesson.faTitle
                                 : "تمام درس‌ها تکمیل شده‌اند!"
                             }\n\n` +
@@ -3736,7 +3736,7 @@ Good luck — and have fun coding! 🚀`,
                             : "📊 My Progress\n\n" +
                             "📚 Learning Progress\n\n" +
                             `🎓 Lessons completed: ${completedLessons}/${totalLessons}\n` +
-                            `🎯 Current lesson: ${currentLesson
+                            `🎯 Next lesson: ${currentLesson
                                 ? currentLesson.title
                                 : "All lessons completed!"
                             }\n\n` +

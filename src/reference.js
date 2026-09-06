@@ -2568,7 +2568,7 @@ export const references = [
             "condition ? value1 : value2\n\n" +
 
             "FOR LOOP\n" +
-            "for (let i = 0; i < 10; i++) {}\n\n" +
+            "for (let i = 0; i &lt; 10; i++) {}\n\n" +
 
             "FOR...OF\n" +
             "for (const item of items) {}\n\n" +
@@ -2588,9 +2588,7 @@ export const references = [
             "const clone = { ...object };\n\n" +
 
             "TEMPLATE LITERAL\n" +
-            "js\n" +
-            "const message = Hello ${name};\n" +
-            "\n\n" +
+            "const message = `Hello ${name}`;\n\n" +
 
             "EVENT\n" +
             "js\n" +

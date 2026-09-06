@@ -2,6 +2,7 @@ export const lessons = [
     {
         id: 1,
         title: "JavaScript Variables",
+        faTitle: "متغیر ها در JavaScript",
         content:
             "Variables are used to store data in a program so we can use that data later.\n\n" +
 
@@ -162,6 +163,7 @@ export const lessons = [
     {
         id: 2,
         title: "JavaScript Data Types",
+        faTitle: "انواع داده ها",
         content:
             "A string is a data type used to represent text in JavaScript.\n\n" +
 
