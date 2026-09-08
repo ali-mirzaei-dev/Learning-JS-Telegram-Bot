@@ -2223,9 +2223,13 @@ Good luck — and have fun coding! 🚀`,
                             : lesson.title;
 
                     const content =
-                        language === "fa"
-                            ? lesson.faContent
-                            : lesson.content;
+                        lesson.content?.en
+                            ? language === "fa"
+                                ? lesson.content.fa
+                                : lesson.content.en
+                            : language === "fa"
+                                ? lesson.faContent
+                                : lesson.content;
 
                     const keyboard = [];
 
@@ -2359,6 +2363,11 @@ Good luck — and have fun coding! 🚀`,
                             ? "❌ اشتباه!\n\n"
                             : "❌ Incorrect!\n\n";
 
+                    const correctAnswer =
+                        language === "fa"
+                            ? question.faOptions[question.correctAnswer]
+                            : question.options[question.correctAnswer];
+
                     const explanation =
                         language === "fa"
                             ? question.faExplanation
@@ -2367,7 +2376,13 @@ Good luck — and have fun coding! 🚀`,
                     const resultMessageId = await sendMessage(
                         chatId,
                         env,
-                        resultText + explanation,
+
+                        resultText +
+                        (language === "fa"
+                            ? `پاسخ درست: ${correctAnswer}\n\n`
+                            : `Correct answer: ${correctAnswer}\n\n`) +
+                        explanation,
+
                         {
                             inline_keyboard: [
                                 [
@@ -2647,6 +2662,11 @@ Good luck — and have fun coding! 🚀`,
                             ? "❌ اشتباه!"
                             : "❌ Incorrect!";
 
+                    const correctAnswer =
+                        language === "fa"
+                            ? question.faOptions[question.correctAnswer]
+                            : question.options[question.correctAnswer];
+
                     const explanation =
                         language === "fa"
                             ? question.faExplanation
@@ -2843,8 +2863,8 @@ Good luck — and have fun coding! 🚀`,
                             chatId,
                             env,
                             language === "fa"
-                                ? `${resultText}\n\n${explanation}\n\n🏆 آزمون تمام شد!\n\n🎯 امتیاز: ${quiz.score}/${quiz.questions.length}\n📊 دقت: ${accuracy}%\n🎯 سطح: ${difficultyName}\n🏆 بهترین دقت: ${bestAccuracy}%\n\n━━━━━━━━━━━━━━━━━━\n\n📚 عملکرد درس‌ها\n\n${lessonPerformance}\n\n━━━━━━━━━━━━━━━━━━\n\n⚠️ نقاط ضعف\n\n${weakAreas}`
-                                : `${resultText}\n\n${explanation}\n\n🏆 Quiz Complete!\n\n🎯 Score: ${quiz.score}/${quiz.questions.length}\n📊 Accuracy: ${accuracy}%\n🎯 Difficulty: ${difficultyName}\n🏆 Best Accuracy: ${bestAccuracy}%\n\n━━━━━━━━━━━━━━━━━━\n\n📚 Lesson Performance\n\n${lessonPerformance}\n\n━━━━━━━━━━━━━━━━━━\n\n⚠️ Weak Areas\n\n${weakAreas}`,
+                                ? `${resultText}\n\nپاسخ درست: ${correctAnswer}\n\n${explanation}\n\n🏆 آزمون تمام شد!\n\n🎯 امتیاز: ${quiz.score}/${quiz.questions.length}\n📊 دقت: ${accuracy}%\n🎯 سطح: ${difficultyName}\n🏆 بهترین دقت: ${bestAccuracy}%\n\n━━━━━━━━━━━━━━━━━━\n\n📚 عملکرد درس‌ها\n\n${lessonPerformance}\n\n━━━━━━━━━━━━━━━━━━\n\n⚠️ نقاط ضعف\n\n${weakAreas}`
+                                : `${resultText}\n\nCorrect answer: ${correctAnswer}\n\n${explanation}\n\n🏆 Quiz Complete!\n\n🎯 Score: ${quiz.score}/${quiz.questions.length}\n📊 Accuracy: ${accuracy}%\n🎯 Difficulty: ${difficultyName}\n🏆 Best Accuracy: ${bestAccuracy}%\n\n━━━━━━━━━━━━━━━━━━\n\n📚 Lesson Performance\n\n${lessonPerformance}\n\n━━━━━━━━━━━━━━━━━━\n\n⚠️ Weak Areas\n\n${weakAreas}`,
                             {
                                 inline_keyboard: [
                                     [
@@ -2923,7 +2943,9 @@ Good luck — and have fun coding! 🚀`,
                     await sendMessage(
                         chatId,
                         env,
-                        `${resultText}\n\n${explanation}`,
+                        language === "fa"
+                            ? `${resultText}\n\nپاسخ درست: ${correctAnswer}\n\n${explanation}`
+                            : `${resultText}\n\nCorrect answer: ${correctAnswer}\n\n${explanation}`,
                     );
 
                     await sendMessage(
