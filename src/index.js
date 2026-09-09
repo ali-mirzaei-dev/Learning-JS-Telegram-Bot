@@ -2157,9 +2157,13 @@ Good luck — and have fun coding! 🚀`,
                             : lesson.title;
 
                     const content =
-                        language === "fa"
-                            ? lesson.faContent
-                            : lesson.content;
+                        lesson.content?.en
+                            ? language === "fa"
+                                ? lesson.content.fa
+                                : lesson.content.en
+                            : language === "fa"
+                                ? lesson.faContent
+                                : lesson.content;
 
                     await sendMessage(
                         chatId,
@@ -3426,11 +3430,31 @@ Good luck — and have fun coding! 🚀`,
                             chatId,
                             env,
                             language === "fa"
-                                ? "❌ چالش مناسبی برای امروز پیدا نشد."
-                                : "❌ No suitable challenge was found for today.",
+                                ? "🔒 برای استفاده از Daily Challenge، ابتدا باید درس امروز را کامل کنید."
+                                : "🔒 Please complete today's Daily Lesson before using the Daily Challenge.",
+                            {
+                                inline_keyboard: [
+                                    [
+                                        {
+                                            text:
+                                                language === "fa"
+                                                    ? "📚 درس امروز"
+                                                    : "📚 Daily Lesson",
+                                            callback_data: "daily_lesson",
+                                        },
+                                    ],
+                                    [
+                                        {
+                                            text:
+                                                language === "fa"
+                                                    ? "🏠 منوی اصلی"
+                                                    : "🏠 Main Menu",
+                                            callback_data: "main_menu",
+                                        },
+                                    ],
+                                ],
+                            },
                         );
-
-                        await sendMainMenu(chatId, env);
 
                         return new Response("OK");
                     }
