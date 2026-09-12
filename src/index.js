@@ -280,6 +280,11 @@ async function sendMessage(
     );
 
     const data = await response.json();
+
+    if (!data.ok) {
+        console.error("Telegram sendMessage error:", data);
+    }
+
     return data.result?.message_id;
 }
 
@@ -1935,8 +1940,8 @@ Good luck — and have fun coding! 🚀`,
                                     {
                                         text: showStartButton
                                             ? language === "fa"
-                                                ? "🚀 شروع یادگیری"
-                                                : "🚀 Start Learning"
+                                                ? "🚀 شروع اولین درس"
+                                                : "🚀 Start First Lesson"
                                             : language === "fa"
                                                 ? "🏠 منوی اصلی"
                                                 : "🏠 Main Menu",
@@ -1963,6 +1968,9 @@ Good luck — and have fun coding! 🚀`,
                 }
 
                 if (callbackQuery.data === "start_learning") {
+                    const user = await getUser(chatId, env);
+                    const language = user?.language || "en";
+
                     await removeMessageKeyboard(
                         chatId,
                         callbackQuery.message.message_id,
@@ -1976,7 +1984,50 @@ Good luck — and have fun coding! 🚀`,
                         .bind(String(chatId))
                         .run();
 
-                    await sendMainMenu(chatId, env);
+                    const lesson = lessons.find(
+                        (lesson) => lesson.id === user.current_lesson,
+                    );
+
+                    if (!lesson) {
+                        await sendMainMenu(chatId, env);
+                        return new Response("OK");
+                    }
+
+                    const title =
+                        language === "fa"
+                            ? lesson.faTitle
+                            : lesson.title;
+
+                    const content =
+                        lesson.content?.en
+                            ? language === "fa"
+                                ? lesson.content.fa
+                                : lesson.content.en
+                            : language === "fa"
+                                ? lesson.faContent
+                                : lesson.content;
+
+                    await sendMessage(
+                        chatId,
+                        env,
+                        `📚 ${language === "fa"
+                            ? "درس اول"
+                            : "First Lesson"
+                        }\n\n${title}\n\n${content}`,
+                        {
+                            inline_keyboard: [
+                                [
+                                    {
+                                        text:
+                                            language === "fa"
+                                                ? "❓ سؤال کوتاه"
+                                                : "❓ Quick Question",
+                                        callback_data: `question_${lesson.id}`,
+                                    },
+                                ],
+                            ],
+                        },
+                    );
 
                     return new Response("OK");
                 }
