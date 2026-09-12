@@ -315,10 +315,6 @@ async function sendMainMenu(chatId, env) {
                 ? [
                     [
                         {
-                            text: "📚 درس امروز",
-                            callback_data: "daily_lesson",
-                        },
-                        {
                             text: "🧩 چالش امروز",
                             callback_data: "challenge",
                         },
@@ -360,10 +356,6 @@ async function sendMainMenu(chatId, env) {
                 ]
                 : [
                     [
-                        {
-                            text: "📚 Today's Lesson",
-                            callback_data: "daily_lesson",
-                        },
                         {
                             text: "🧩 Daily Challenge",
                             callback_data: "challenge",
