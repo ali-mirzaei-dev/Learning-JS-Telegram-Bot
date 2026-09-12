@@ -88,7 +88,9 @@ async function ensureChallengeProgress(chatId, env) {
 }
 
 function getTodayDate() {
-    return new Date().toISOString().slice(0, 10);
+    return new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Asia/Tehran",
+    }).format(new Date());
 }
 
 async function getDailyChallenge(
@@ -2441,7 +2443,7 @@ Good luck — and have fun coding! 🚀`,
                     if (nextLesson) {
                         await env.learning_js_bot_db
                             .prepare(
-                                "UPDATE users SET current_lesson = ?, last_lesson_date = ? WHERE telegram_id = ?",
+                                "UPDATE users SET current_lesson = ?, last_lesson_date = ?, last_lesson_sent_date = NULL WHERE telegram_id = ?",
                             )
                             .bind(
                                 nextLesson.id,
@@ -2461,7 +2463,7 @@ Good luck — and have fun coding! 🚀`,
                         // Last lesson completed
                         await env.learning_js_bot_db
                             .prepare(
-                                "UPDATE users SET current_lesson = ?, last_lesson_date = ? WHERE telegram_id = ?",
+                                "UPDATE users SET current_lesson = ?, last_lesson_date = ?, last_lesson_sent_date = NULL WHERE telegram_id = ?",
                             )
                             .bind(
                                 lessons.length + 1,
@@ -4116,8 +4118,105 @@ Good luck — and have fun coding! 🚀`,
     },
 
     async scheduled(event, env, ctx) {
+        const tehranTime = new Intl.DateTimeFormat("en-US", {
+            timeZone: "Asia/Tehran",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+        }).formatToParts(new Date());
+
+        const hour = tehranTime.find(
+            (part) => part.type === "hour",
+        )?.value;
+
+        const minute = tehranTime.find(
+            (part) => part.type === "minute",
+        )?.value;
+
+        if (hour !== "07" || minute !== "15") {
+            return;
+        }
+
+        const today = getTodayDate();
+
         console.log(
-            `Scheduled event fired at ${event.cron}`,
+            `7:15 AM Tehran — checking daily lessons for ${today}...`,
         );
-    },
+
+        const users = await env.learning_js_bot_db
+            .prepare(
+                "SELECT telegram_id, current_lesson, language, last_lesson_date, last_lesson_sent_date FROM users WHERE current_lesson <= ?",
+            )
+            .bind(lessons.length)
+            .all();
+
+        for (const user of users.results) {
+            // The first lesson is started manually.
+            // Automatic delivery begins after the user has completed
+            // at least one previous lesson.
+            if (!user.last_lesson_date) {
+                continue;
+            }
+
+            // Do not send the same lesson more than once per day.
+            if (user.last_lesson_sent_date === today) {
+                continue;
+            }
+
+            const lesson = lessons.find(
+                (lesson) =>
+                    lesson.id === user.current_lesson,
+            );
+
+            if (!lesson) {
+                continue;
+            }
+
+            const title =
+                user.language === "fa"
+                    ? lesson.faTitle
+                    : lesson.title;
+
+            const content =
+                lesson.content?.en
+                    ? user.language === "fa"
+                        ? lesson.content.fa
+                        : lesson.content.en
+                    : user.language === "fa"
+                        ? lesson.faContent
+                        : lesson.content;
+
+            await sendMessage(
+                user.telegram_id,
+                env,
+                `📚 ${user.language === "fa"
+                    ? "درس امروز"
+                    : "Today's Lesson"
+                }\n\n${title}\n\n${content}`,
+                {
+                    inline_keyboard: [
+                        [
+                            {
+                                text:
+                                    user.language === "fa"
+                                        ? "❓ سؤال کوتاه"
+                                        : "❓ Quick Question",
+                                callback_data: `question_${lesson.id}`,
+                            },
+                        ],
+                    ],
+                },
+            );
+
+            await env.learning_js_bot_db
+                .prepare(
+                    "UPDATE users SET last_lesson_sent_date = ? WHERE telegram_id = ?",
+                )
+                .bind(
+                    today,
+                    String(user.telegram_id),
+                )
+                .run();
+        }
+    }
 };
