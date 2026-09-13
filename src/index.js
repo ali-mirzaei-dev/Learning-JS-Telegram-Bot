@@ -862,7 +862,7 @@ export default {
                                                 text: "👨‍💻 Credits",
                                                 callback_data: "credits",
                                             },
-                                        ],
+                                        ], 
                                         [
                                             {
                                                 text: "📩 Contact Developer",
