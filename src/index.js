@@ -987,20 +987,22 @@ export default {
                         language === "fa"
                             ? `📚 درس‌ها
 
-بخش درس‌ها جاییه که مسیر اصلی یادگیری جاوااسکریپتت رو دنبال می‌کنی.
+بخش درس‌ها مسیر اصلی یادگیری جاوااسکریپتت رو تشکیل می‌ده.
 
 ━━━━━━━━━━━━━━
 
 📅 درس روزانه
 
-هر روز یک درس جدید در دسترس قرار می‌گیره.
+اولین درس رو خودت شروع می‌کنی.
 
-می‌تونی هر بار روی یک موضوع تمرکز کنی و بدون عجله کل دوره رو جلو ببری.
+بعد از اون، هر روز ساعت ۷:۱۵ صبح به وقت تهران، درس بعدی به‌صورت خودکار برات ارسال می‌شه.
+
+برای رفتن به درس بعدی، باید درس فعلی رو کامل کرده باشی.
 
 هر درس شامل:
 • یک موضوع جاوااسکریپت
 • یک توضیح کوتاه
-• ۱۰ سؤال تمرینی
+• یک سؤال کوتاه برای بررسی یادگیری
 
 ━━━━━━━━━━━━━━
 
@@ -1008,13 +1010,13 @@ export default {
 
 بعد از تکمیل هر درس، پیشرفتت به‌صورت خودکار ذخیره می‌شه.
 
-درس‌های تکمیل‌شده روی بخش‌های دیگه‌ی سیستم یادگیری، از جمله Quiz 2.0، هم تأثیر می‌ذارن.
+درس‌های تکمیل‌شده روی بخش‌های دیگه‌ی سیستم یادگیری، از جمله Quiz، هم تأثیر می‌ذارن.
 
 ━━━━━━━━━━━━━━
 
 📚 همه درس‌ها
 
-از بخش همه درس‌ها می‌تونی درس‌هایی که در دسترست قرار گرفتن رو ببینی و مطالب قبلی رو دوباره مرور کنی.
+از بخش همه درس‌ها می‌تونی درس‌هایی که قبلاً کامل کردی رو دوباره ببینی و مطالب قبلی رو مرور کنی.
 
 ━━━━━━━━━━━━━━
 
@@ -1022,25 +1024,27 @@ export default {
 
 درس‌ها پایه‌ی بخش‌های دیگه‌ی ربات هستن.
 
-یاد بگیر ← با سؤال‌ها تمرین کن ← در JS Reference مرور کن ← با Quiz خودت رو امتحان کن ← چالش روزانه رو انجام بده
+یاد بگیر ← سؤال کوتاه ← درس رو کامل کن ← چالش روزانه ← آزمون و مرور
 
 ━━━━━━━━━━━━━━`
                             : `📚 Lessons
 
-The Lessons section is where your main JavaScript learning journey happens.
+The Lessons section is the main path of your JavaScript learning journey.
 
 ━━━━━━━━━━━━━━
 
 📅 DAILY LESSON
 
-A new lesson becomes available each day.
+You start the first lesson yourself.
 
-You can focus on one topic at a time instead of rushing through the entire course.
+After that, the next lesson is automatically sent to you every day at 7:15 AM Tehran time.
+
+You need to complete your current lesson before moving on to the next one.
 
 Each lesson contains:
 • A JavaScript topic
 • A short explanation
-• 10 practice questions
+• A quick question to check your understanding
 
 ━━━━━━━━━━━━━━
 
@@ -1048,13 +1052,13 @@ Each lesson contains:
 
 Once you complete a lesson, your progress is saved automatically.
 
-Your completed lessons also affect other parts of the learning system, including Quiz 2.0.
+Completed lessons also affect other parts of the learning system, including Quiz.
 
 ━━━━━━━━━━━━━━
 
 📚 ALL LESSONS
 
-Use All Lessons to see the lessons you've unlocked and revisit previous material.
+Use All Lessons to revisit lessons you've already completed and review previous material.
 
 ━━━━━━━━━━━━━━
 
@@ -1062,7 +1066,7 @@ Use All Lessons to see the lessons you've unlocked and revisit previous material
 
 Lessons are the foundation of the rest of the bot.
 
-Learn a topic → Practice with questions → Review it in JS Reference → Test yourself with Quiz → Take on Daily Challenges
+Learn → Quick Question → Complete the Lesson → Daily Challenge → Quiz & Review
 
 ━━━━━━━━━━━━━━`,
                         {
@@ -1808,7 +1812,11 @@ For the ideas, bugs, questionable decisions, and countless debugging sessions al
                     return new Response("OK");
                 }
 
-                async function sendIntroduction(chatId, env, showStartButton = false) {
+                async function sendIntroduction(
+                    chatId,
+                    env,
+                    showStartButton = false,
+                ) {
                     const user = await getUser(chatId, env);
                     const language = user?.language || "en";
 
@@ -1835,17 +1843,17 @@ For the ideas, bugs, questionable decisions, and countless debugging sessions al
 📚 اینجا چه کارهایی می‌تونی انجام بدی؟
 
 📚 درس‌ها
-جاوااسکریپت رو قدم‌به‌قدم یاد بگیر و از مفاهیم پایه شروع کن.
+اولین درس رو خودت شروع می‌کنی.
 
-هر روز فقط یک درس در دسترسه تا بتونی روی یک موضوع تمرکز کنی و با عجله جلو نری.
+بعد از اون، هر روز ساعت ۷:۱۵ صبح به وقت تهران، درس بعدی به‌صورت خودکار برات ارسال می‌شه.
+
+برای رفتن به درس بعدی، باید درس فعلی رو کامل کرده باشی.
 
 🧠 آزمون‌ها
 دانشت رو با سؤال‌های آسان، متوسط و سخت امتحان کن.
 
 🧩 چالش روزانه
-هر روز با یک چالش جدید جاوااسکریپت خودت رو محک بزن.
-
-هر روز فقط یک چالش می‌تونی انجام بدی؛ یه چالش کوچیک که هر روز دلیلی برای برگشتن و ادامه دادن بهت می‌ده.
+بعد از کامل کردن درس روزانه، یک چالش جدید JavaScript در اختیارت قرار می‌گیره تا چیزی که یاد گرفتی رو به چالش بکشی.
 
 📊 پیشرفت من
 روند یادگیریت رو دنبال کن و ببین چقدر پیشرفت کردی.
@@ -1870,11 +1878,22 @@ For the ideas, bugs, questionable decisions, and countless debugging sessions al
 
 🚀 مسیر یادگیری
 
-یاد بگیر → تمرین کن → اشتباه کن → پیشرفت کن
+شروع اولین درس
+↓
+یادگیری
+↓
+سؤال کوتاه
+↓
+تکمیل درس
+↓
+🧩 چالش روزانه
+↓
+⏰ درس بعدی در روز بعد
 
 عجله نکن، کنجکاو بمون و از مسیر لذت ببر.
 
-موفق باشی و از کدنویسی لذت ببر! 🚀`
+موفق باشی و از کدنویسی لذت ببر! 🚀
+`
                             : `🚀 Welcome to JavaScript Learning Bot
 
 A hands-on way to learn, practice, and test your JavaScript skills.
@@ -1894,17 +1913,17 @@ This bot was built around that idea — turning JavaScript learning into somethi
 📚 WHAT YOU CAN DO
 
 📚 Lessons
-Learn JavaScript step by step, starting with the fundamentals.
+You start the first lesson yourself.
 
-Only one lesson is available each day, so you can focus on learning one topic at a time and avoid rushing through the material.
+After that, the next lesson is automatically sent to you every day at 7:15 AM Tehran time.
+
+You need to complete your current lesson before moving on to the next one.
 
 🧠 Quizzes
 Test your knowledge with Easy, Medium, and Hard questions.
 
 🧩 Daily Challenge
-Take on a new JavaScript challenge every day.
-
-You can complete only one challenge per day, giving you a small challenge to come back to each day.
+After completing your daily lesson, you'll get a new JavaScript challenge to put what you've learned into practice.
 
 📊 My Progress
 Keep track of your learning and see how you're improving.
@@ -1927,9 +1946,19 @@ That's part of learning.
 
 ━━━━━━━━━━━━━━
 
-🚀 THE JOURNEY
+🚀 THE LEARNING JOURNEY
 
-Learn → Practice → Make mistakes → Improve
+Start your first lesson
+↓
+Learn
+↓
+Quick Question
+↓
+Complete the lesson
+↓
+🧩 Daily Challenge
+↓
+⏰ Next lesson the following day
 
 Take your time, stay curious, and enjoy the process.
 
