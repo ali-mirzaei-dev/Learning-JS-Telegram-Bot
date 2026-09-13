@@ -821,14 +821,20 @@ export default {
                                         ],
                                         [
                                             {
+                                                text: "🧭 راهنمای کامل",
+                                                callback_data: "complete_guide",
+                                            },
+                                        ],
+                                        [
+                                            {
                                                 text: "👨‍💻 درباره سازنده",
                                                 callback_data: "credits",
                                             },
                                         ],
                                         [
                                             {
-                                                text: "🧭 راهنمای کامل",
-                                                callback_data: "complete_guide",
+                                                text: "📩 ارتباط با سازنده",
+                                                callback_data: "contact_me",
                                             },
                                         ],
                                         [
@@ -847,14 +853,20 @@ export default {
                                         ],
                                         [
                                             {
+                                                text: "🧭 Complete Guide",
+                                                callback_data: "complete_guide",
+                                            },
+                                        ],
+                                        [
+                                            {
                                                 text: "👨‍💻 Credits",
                                                 callback_data: "credits",
                                             },
                                         ],
                                         [
                                             {
-                                                text: "🧭 Complete Guide",
-                                                callback_data: "complete_guide",
+                                                text: "📩 Contact Developer",
+                                                callback_data: "contact_me",
                                             },
                                         ],
                                         [
@@ -1678,7 +1690,75 @@ It's a quick way to refresh your memory and keep important JavaScript concepts c
                     return new Response("OK");
                 }
 
+                if (callbackQuery.data === "contact_me") {
+                    await removeMessageKeyboard(
+                        chatId,
+                        callbackQuery.message.message_id,
+                        env,
+                    );
 
+                    const user = await getUser(chatId, env);
+                    const language = user?.language || "en";
+
+                    await sendMessage(
+                        chatId,
+                        env,
+                        language === "fa"
+                            ? `📩 ارتباط با سازنده
+
+اگر باگی پیدا کردی، مشکلی در ربات دیدی یا ایده‌ای برای بهتر شدنش داری، خوشحال می‌شم باهام در میون بذاری.
+
+بازخورد شما کمک می‌کنه ربات رو بهتر و کاربردی‌تر کنم. 🙏
+
+━━━━━━━━━━━━━━
+
+👨‍💻 علی میرزایی
+Frontend Developer`
+                            : `📩 Contact the Developer
+
+If you find a bug, run into an issue, or have an idea for improving the bot, I'd love to hear from you.
+
+Your feedback helps me make the bot better and more useful. 🙏
+
+━━━━━━━━━━━━━━
+
+👨‍💻 Ali Mirzaei
+Frontend Developer`,
+                        {
+                            inline_keyboard: [
+                                [
+                                    {
+                                        text:
+                                            language === "fa"
+                                                ? "💬 پیام به علی"
+                                                : "💬 Message Ali",
+                                        url: "https://t.me/ali_mirzaei_kt",
+                                    },
+                                ],
+                                [
+                                    {
+                                        text:
+                                            language === "fa"
+                                                ? "⬅️ بازگشت به درباره"
+                                                : "⬅️ Back to About",
+                                        callback_data: "about",
+                                    },
+                                ],
+                                [
+                                    {
+                                        text:
+                                            language === "fa"
+                                                ? "🏠 منوی اصلی"
+                                                : "🏠 Main Menu",
+                                        callback_data: "main_menu",
+                                    },
+                                ],
+                            ],
+                        },
+                    );
+
+                    return new Response("OK");
+                }
 
                 if (callbackQuery.data === "credits") {
                     await removeMessageKeyboard(
