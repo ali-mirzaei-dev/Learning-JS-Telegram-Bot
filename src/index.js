@@ -252,9 +252,22 @@ async function sendMessage(
     text,
     replyMarkup = null,
 ) {
+    // 1. Temporarily protect <a href="..."> and </a> links
+    let safeText = text
+        .replace(/<a href="(.*?)">/g, '[[LINK_START]]$1[[LINK_MID]]')
+        .replace(/<\/a>/g, '[[LINK_END]]');
+
+    // 2. Escape all remaining < and > 
+    safeText = safeText.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+    // 3. Restore the HTML link tags
+    safeText = safeText
+        .replace(/\[\[LINK_START\]\](.*?)\[\[LINK_MID\]\]/g, '<a href="$1">')
+        .replace(/\[\[LINK_END\]\]/g, '</a>');
+
     const body = {
         chat_id: chatId,
-        text,
+        text: safeText, // Use the safe text!
         parse_mode: "HTML",
     };
 
@@ -281,12 +294,23 @@ async function sendMessage(
 
     const data = await response.json();
 
-    if (!data.ok) {
-        console.error("Telegram sendMessage error:", data);
+    if (!response.ok || !data.ok) {
+        console.error(
+            `Telegram sendMessage failed for ${chatId}:`,
+            data,
+        );
+
+        console.error(
+            "Message text:",
+            text,
+        );
+
+        return null;
     }
 
-    return data.result?.message_id;
+    return data.result?.message_id ?? null;
 }
+
 
 async function removeMessageKeyboard(chatId, messageId, env) {
     await fetch(
@@ -862,7 +886,7 @@ export default {
                                                 text: "👨‍💻 Credits",
                                                 callback_data: "credits",
                                             },
-                                        ], 
+                                        ],
                                         [
                                             {
                                                 text: "📩 Contact Developer",
@@ -4285,7 +4309,7 @@ Good luck — and have fun coding! 🚀`,
             (part) => part.type === "minute",
         )?.value;
 
-        if (hour !== "07" || minute !== "15") {
+        if (hour !== "07" || Number(minute) < 15) {
             return;
         }
 
@@ -4306,7 +4330,12 @@ Good luck — and have fun coding! 🚀`,
             // The first lesson is started manually.
             // Automatic delivery begins after the user has completed
             // at least one previous lesson.
-            if (!user.last_lesson_date) {
+            // Also, do not send an automatic lesson if the user 
+            // already completed a lesson manually today.
+            if (
+                !user.last_lesson_date ||
+                user.last_lesson_date >= today
+            ) {
                 continue;
             }
 
@@ -4338,7 +4367,7 @@ Good luck — and have fun coding! 🚀`,
                         ? lesson.faContent
                         : lesson.content;
 
-            await sendMessage(
+            const messageId = await sendMessage(
                 user.telegram_id,
                 env,
                 `📚 ${user.language === "fa"
@@ -4360,15 +4389,31 @@ Good luck — and have fun coding! 🚀`,
                 },
             );
 
-            await env.learning_js_bot_db
-                .prepare(
-                    "UPDATE users SET last_lesson_sent_date = ? WHERE telegram_id = ?",
-                )
-                .bind(
-                    today,
-                    String(user.telegram_id),
-                )
-                .run();
+            if (messageId) {
+                // Message sent successfully, update the sent date
+                await env.learning_js_bot_db
+                    .prepare(
+                        "UPDATE users SET last_lesson_sent_date = ? WHERE telegram_id = ?",
+                    )
+                    .bind(
+                        today,
+                        String(user.telegram_id),
+                    )
+                    .run();
+            } else {
+                // Message failed (user blocked bot). 
+                // We update the date anyway so the cron job doesn't spam them every minute.
+                console.log(`Failed to send to ${user.telegram_id}. Marking as sent to prevent retry loop.`);
+                await env.learning_js_bot_db
+                    .prepare(
+                        "UPDATE users SET last_lesson_sent_date = ? WHERE telegram_id = ?",
+                    )
+                    .bind(
+                        today,
+                        String(user.telegram_id),
+                    )
+                    .run();
+            }
         }
     }
 };

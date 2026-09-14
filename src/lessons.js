@@ -1398,40 +1398,40 @@ The result of a comparison is always a Boolean: true or false.
 
 For example:
 
-10 > 5
+10 &gt; 5
 
 The result is true because 10 is greater than 5.
 
 The main comparison operators are:
 
-> → greater than
-< → less than
->= → greater than or equal to
-<= → less than or equal to
+&gt; → greater than
+&lt; → less than
+&gt;= → greater than or equal to
+&lt;= → less than or equal to
 === → strictly equal
 !== → strictly not equal
 
-The > operator checks whether the value on the left is greater than the value on the right:
+The &gt; operator checks whether the value on the left is greater than the value on the right:
 
-10 > 5
-
-The result is true.
-
-The < operator checks whether the value on the left is less than the value on the right:
-
-3 < 8
+10 &gt; 5
 
 The result is true.
 
-The >= operator checks whether a value is greater than or equal to another value:
+The &lt; operator checks whether the value on the left is less than the value on the right:
 
-10 >= 10
+3 &lt; 8
+
+The result is true.
+
+The &gt;= operator checks whether a value is greater than or equal to another value:
+
+10 &gt;= 10
 
 The result is true because the values are equal.
 
-The <= operator checks whether a value is less than or equal to another value:
+The &lt;= operator checks whether a value is less than or equal to another value:
 
-7 <= 10
+7 &lt;= 10
 
 The result is true because 7 is less than 10.
 
@@ -1465,7 +1465,7 @@ Comparison operators can be used with variables:
 
 const age = 20;
 
-age >= 18
+age &gt;= 18
 
 The result is true.
 
@@ -1473,7 +1473,7 @@ You can also compare the result of expressions:
 
 const score = 80;
 
-score > 50
+score &gt; 50
 
 The result is true.
 
@@ -1505,10 +1505,10 @@ score === 100
 
 Remember:
 
-> → greater than
-< → less than
->= → greater than or equal to
-<= → less than or equal to
+&gt; → greater than
+&lt; → less than
+&gt;= → greater than or equal to
+&lt;= → less than or equal to
 === → strictly equal
 !== → strictly not equal
 
@@ -1520,40 +1520,40 @@ Comparison operators are important because they produce Boolean values that can 
 
 برای مثال:
 
-10 > 5
+10 &gt; 5
 
 نتیجه true است زیرا 10 بزرگ‌تر از 5 است.
 
 مهم‌ترین عملگرهای مقایسه‌ای عبارت‌اند از:
 
-> → بزرگ‌تر از
-< → کوچک‌تر از
->= → بزرگ‌تر یا مساوی
-<= → کوچک‌تر یا مساوی
+&gt; → بزرگ‌تر از
+&lt; → کوچک‌تر از
+&gt;= → بزرگ‌تر یا مساوی
+&lt;= → کوچک‌تر یا مساوی
 === → کاملاً برابر
 !== → کاملاً نابرابر
 
-عملگر > بررسی می‌کند که آیا مقدار سمت چپ بزرگ‌تر از مقدار سمت راست است یا نه:
+عملگر &gt; بررسی می‌کند که آیا مقدار سمت چپ بزرگ‌تر از مقدار سمت راست است یا نه:
 
-10 > 5
-
-نتیجه true است.
-
-عملگر < بررسی می‌کند که آیا مقدار سمت چپ کوچک‌تر از مقدار سمت راست است یا نه:
-
-3 < 8
+10 &gt; 5
 
 نتیجه true است.
 
-عملگر >= بررسی می‌کند که آیا یک مقدار بزرگ‌تر یا مساوی مقدار دیگر است:
+عملگر &lt; بررسی می‌کند که آیا مقدار سمت چپ کوچک‌تر از مقدار سمت راست است یا نه:
 
-10 >= 10
+3 &lt; 8
+
+نتیجه true است.
+
+عملگر &gt;= بررسی می‌کند که آیا یک مقدار بزرگ‌تر یا مساوی مقدار دیگر است:
+
+10 &gt;= 10
 
 نتیجه true است زیرا دو مقدار با یکدیگر برابر هستند.
 
-عملگر <= بررسی می‌کند که آیا یک مقدار کوچک‌تر یا مساوی مقدار دیگر است:
+عملگر &lt;= بررسی می‌کند که آیا یک مقدار کوچک‌تر یا مساوی مقدار دیگر است:
 
-7 <= 10
+7 &lt;= 10
 
 نتیجه true است زیرا 7 کوچک‌تر از 10 است.
 
@@ -1587,7 +1587,7 @@ Comparison operators are important because they produce Boolean values that can 
 
 const age = 20;
 
-age >= 18
+age &gt;= 18
 
 نتیجه true است.
 
@@ -1595,7 +1595,7 @@ age >= 18
 
 const score = 80;
 
-score > 50
+score &gt; 50
 
 نتیجه true است.
 
@@ -1627,10 +1627,10 @@ score === 100
 
 به یاد داشته باشید:
 
-> → بزرگ‌تر از
-< → کوچک‌تر از
->= → بزرگ‌تر یا مساوی
-<= → کوچک‌تر یا مساوی
+&gt; → بزرگ‌تر از
+&lt; → کوچک‌تر از
+&gt;= → بزرگ‌تر یا مساوی
+&lt;= → کوچک‌تر یا مساوی
 === → کاملاً برابر
 !== → کاملاً نابرابر
 
@@ -1748,7 +1748,7 @@ For example:
 
 const age = 20;
 
-age >= 18 && age <= 30
+age &gt;= 18 && age &lt;= 30
 
 The first comparison is true and the second comparison is also true, so the complete expression is true.
 
@@ -1756,7 +1756,7 @@ Another example:
 
 const age = 16;
 
-age >= 18 || age <= 30
+age &gt;= 18 || age &lt;= 30
 
 The first comparison is false, but the second comparison is true, so the complete expression is true.
 
@@ -1903,7 +1903,7 @@ const isOnline = true;
 
 const age = 20;
 
-age >= 18 && age <= 30
+age &gt;= 18 && age &lt;= 30
 
 مقایسه اول true و مقایسه دوم نیز true است، بنابراین نتیجه عبارت کامل true می‌شود.
 
@@ -1911,7 +1911,7 @@ age >= 18 && age <= 30
 
 const age = 16;
 
-age >= 18 || age <= 30
+age &gt;= 18 || age &lt;= 30
 
 مقایسه اول false است، اما مقایسه دوم true است، بنابراین نتیجه عبارت کامل true می‌شود.
 
@@ -2297,7 +2297,7 @@ The most basic conditional statement in JavaScript is if.
 
 For example:
 
-if (age >= 18) {
+if (age &gt;= 18) {
     console.log("You can enter.");
 }
 
@@ -2307,11 +2307,11 @@ Here, if age is 18 or greater, the message is printed.
 
 Conditions usually produce Boolean values:
 
-10 > 5
+10 &gt; 5
 
 This produces true.
 
-10 < 5
+10 &lt; 5
 
 This produces false.
 
@@ -2333,7 +2333,7 @@ For example:
 
 const age = 16;
 
-if (age >= 18) {
+if (age &gt;= 18) {
     console.log("You are an adult.");
 } else {
     console.log("You are not an adult.");
@@ -2349,9 +2349,9 @@ For example:
 
 const score = 75;
 
-if (score >= 90) {
+if (score &gt;= 90) {
     console.log("Excellent");
-} else if (score >= 60) {
+} else if (score &gt;= 60) {
     console.log("Passed");
 } else {
     console.log("Failed");
@@ -2367,9 +2367,9 @@ For example:
 
 const age = 20;
 
-if (age >= 18) {
+if (age &gt;= 18) {
     console.log("Adult");
-} else if (age >= 13) {
+} else if (age &gt;= 13) {
     console.log("Teenager");
 }
 
@@ -2379,7 +2379,7 @@ Conditions can also use comparison operators:
 
 const passwordLength = 8;
 
-if (passwordLength >= 8) {
+if (passwordLength &gt;= 8) {
     console.log("Password is long enough.");
 }
 
@@ -2388,7 +2388,7 @@ Logical operators can be used when a condition depends on more than one requirem
 const age = 25;
 const hasTicket = true;
 
-if (age >= 18 && hasTicket) {
+if (age &gt;= 18 && hasTicket) {
     console.log("You can enter.");
 }
 
@@ -2396,7 +2396,7 @@ The code runs only when both conditions are true.
 
 A common beginner mistake is forgetting that the condition must be inside parentheses:
 
-if (age >= 18) {
+if (age &gt;= 18) {
     console.log("Adult");
 }
 
@@ -2427,7 +2427,7 @@ Conditional statements are one of the main ways JavaScript programs make decisio
 
 برای مثال:
 
-if (age >= 18) {
+if (age &gt;= 18) {
     console.log("You can enter.");
 }
 
@@ -2437,11 +2437,11 @@ if (age >= 18) {
 
 شرط‌ها معمولاً مقدار Boolean تولید می‌کنند:
 
-10 > 5
+10 &gt; 5
 
 این عبارت مقدار true تولید می‌کند.
 
-10 < 5
+10 &lt; 5
 
 این عبارت مقدار false تولید می‌کند.
 
@@ -2463,7 +2463,7 @@ if (isLoggedIn) {
 
 const age = 16;
 
-if (age >= 18) {
+if (age &gt;= 18) {
     console.log("You are an adult.");
 } else {
     console.log("You are not an adult.");
@@ -2479,9 +2479,9 @@ if (age >= 18) {
 
 const score = 75;
 
-if (score >= 90) {
+if (score &gt;= 90) {
     console.log("Excellent");
-} else if (score >= 60) {
+} else if (score &gt;= 60) {
     console.log("Passed");
 } else {
     console.log("Failed");
@@ -2497,9 +2497,9 @@ JavaScript شرط‌ها را از بالا به پایین بررسی می‌ک
 
 const age = 20;
 
-if (age >= 18) {
+if (age &gt;= 18) {
     console.log("Adult");
-} else if (age >= 13) {
+} else if (age &gt;= 13) {
     console.log("Teenager");
 }
 
@@ -2509,7 +2509,7 @@ if (age >= 18) {
 
 const passwordLength = 8;
 
-if (passwordLength >= 8) {
+if (passwordLength &gt;= 8) {
     console.log("Password is long enough.");
 }
 
@@ -2518,7 +2518,7 @@ if (passwordLength >= 8) {
 const age = 25;
 const hasTicket = true;
 
-if (age >= 18 && hasTicket) {
+if (age &gt;= 18 && hasTicket) {
     console.log("You can enter.");
 }
 
@@ -2526,7 +2526,7 @@ if (age >= 18 && hasTicket) {
 
 یک اشتباه رایج در بین افراد مبتدی، فراموش کردن پرانتزهای شرط است:
 
-if (age >= 18) {
+if (age &gt;= 18) {
     console.log("Adult");
 }
 
@@ -2564,7 +2564,7 @@ Loops are useful when you want to perform the same action repeatedly without wri
 
 For example:
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i &lt; 5; i++) {
     console.log(i);
 }
 
@@ -2592,7 +2592,7 @@ The condition is checked before each iteration.
 
 For example:
 
-i < 5
+i &lt; 5
 
 As long as this condition is true, the loop continues running.
 
@@ -2607,7 +2607,7 @@ This increases i by 1 after each iteration.
 The loop therefore works like this:
 
 Start with i = 0.
-Check if i < 5.
+Check if i &lt; 5.
 Run the code inside the loop.
 Increase i by 1.
 Check the condition again.
@@ -2615,7 +2615,7 @@ Continue until the condition becomes false.
 
 You can use a different starting value:
 
-for (let i = 1; i <= 5; i++) {
+for (let i = 1; i &lt;= 5; i++) {
     console.log(i);
 }
 
@@ -2633,7 +2633,7 @@ You can also count by different amounts.
 
 For example:
 
-for (let i = 0; i < 10; i += 2) {
+for (let i = 0; i &lt; 10; i += 2) {
     console.log(i);
 }
 
@@ -2651,7 +2651,7 @@ A for loop can also be used to repeat an action a specific number of times.
 
 For example:
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i &lt; 3; i++) {
     console.log("Hello");
 }
 
@@ -2661,7 +2661,7 @@ The variable used to control a loop is often called a loop counter.
 
 The name i is commonly used, but you can use another variable name:
 
-for (let count = 0; count < 3; count++) {
+for (let count = 0; count &lt; 3; count++) {
     console.log(count);
 }
 
@@ -2685,7 +2685,7 @@ A for loop is one of the most common tools for repeating code in JavaScript.`,
 
 برای مثال:
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i &lt; 5; i++) {
     console.log(i);
 }
 
@@ -2713,7 +2713,7 @@ let i = 0
 
 برای مثال:
 
-i < 5
+i &lt; 5
 
 تا زمانی که این شرط درست باشد، اجرای حلقه ادامه پیدا می‌کند.
 
@@ -2736,7 +2736,7 @@ i++
 
 می‌توان مقدار شروع متفاوتی برای حلقه تعیین کرد:
 
-for (let i = 1; i <= 5; i++) {
+for (let i = 1; i &lt;= 5; i++) {
     console.log(i);
 }
 
@@ -2754,7 +2754,7 @@ for (let i = 1; i <= 5; i++) {
 
 برای مثال:
 
-for (let i = 0; i < 10; i += 2) {
+for (let i = 0; i &lt; 10; i += 2) {
     console.log(i);
 }
 
@@ -2772,7 +2772,7 @@ for (let i = 0; i < 10; i += 2) {
 
 برای مثال:
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i &lt; 3; i++) {
     console.log("Hello");
 }
 
@@ -2782,7 +2782,7 @@ for (let i = 0; i < 3; i++) {
 
 نام i بسیار رایج است، اما می‌توان از نام دیگری برای این متغیر استفاده کرد:
 
-for (let count = 0; count < 3; count++) {
+for (let count = 0; count &lt; 3; count++) {
     console.log(count);
 }
 
@@ -2815,7 +2815,7 @@ For example:
 
 let count = 0;
 
-while (count < 5) {
+while (count &lt; 5) {
     console.log(count);
     count++;
 }
@@ -2832,7 +2832,7 @@ The condition is checked before each iteration.
 
 The loop continues while:
 
-count < 5
+count &lt; 5
 
 is true.
 
@@ -2848,7 +2848,7 @@ For example:
 
 let count = 0;
 
-while (count < 3) {
+while (count &lt; 3) {
     console.log(count);
     count++;
 }
@@ -2859,7 +2859,7 @@ A common beginner mistake is forgetting to update the control variable:
 
 let count = 0;
 
-while (count < 3) {
+while (count &lt; 3) {
     console.log(count);
 }
 
@@ -2874,7 +2874,7 @@ let count = 0;
 do {
     console.log(count);
     count++;
-} while (count < 3);
+} while (count &lt; 3);
 
 This prints:
 
@@ -2890,15 +2890,15 @@ let count = 10;
 
 do {
     console.log(count);
-} while (count < 5);
+} while (count &lt; 5);
 
-Even though count < 5 is false, the code inside the do block runs once before the condition is checked.
+Even though count &lt; 5 is false, the code inside the do block runs once before the condition is checked.
 
 Compare this with a while loop:
 
 let count = 10;
 
-while (count < 5) {
+while (count &lt; 5) {
     console.log(count);
 }
 
@@ -2930,7 +2930,7 @@ When using either loop, make sure the condition can eventually become false so t
 
 let count = 0;
 
-while (count < 5) {
+while (count &lt; 5) {
     console.log(count);
     count++;
 }
@@ -2947,7 +2947,7 @@ while (count < 5) {
 
 حلقه تا زمانی ادامه پیدا می‌کند که:
 
-count < 5
+count &lt; 5
 
 درست باشد.
 
@@ -2963,7 +2963,7 @@ count < 5
 
 let count = 0;
 
-while (count < 3) {
+while (count &lt; 3) {
     console.log(count);
     count++;
 }
@@ -2974,7 +2974,7 @@ while (count < 3) {
 
 let count = 0;
 
-while (count < 3) {
+while (count &lt; 3) {
     console.log(count);
 }
 
@@ -2989,7 +2989,7 @@ let count = 0;
 do {
     console.log(count);
     count++;
-} while (count < 3);
+} while (count &lt; 3);
 
 این کد اعداد زیر را نمایش می‌دهد:
 
@@ -3005,15 +3005,15 @@ let count = 10;
 
 do {
     console.log(count);
-} while (count < 5);
+} while (count &lt; 5);
 
-حتی اگر count < 5 نادرست باشد، کد داخل بخش do یک بار اجرا می‌شود و سپس شرط بررسی می‌شود.
+حتی اگر count &lt; 5 نادرست باشد، کد داخل بخش do یک بار اجرا می‌شود و سپس شرط بررسی می‌شود.
 
 این موضوع را با حلقه while مقایسه کنید:
 
 let count = 10;
 
-while (count < 5) {
+while (count &lt; 5) {
     console.log(count);
 }
 
@@ -3050,7 +3050,7 @@ The break statement immediately stops the loop.
 
 For example:
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i &lt; 5; i++) {
     if (i === 3) {
         break;
     }
@@ -3074,7 +3074,7 @@ For example:
 
 let count = 0;
 
-while (count < 10) {
+while (count &lt; 10) {
     if (count === 5) {
         break;
     }
@@ -3091,7 +3091,7 @@ Instead of stopping the entire loop, continue skips the current iteration and mo
 
 For example:
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i &lt; 5; i++) {
     if (i === 2) {
         continue;
     }
@@ -3119,7 +3119,7 @@ You can use break inside a while loop:
 
 let count = 0;
 
-while (count < 5) {
+while (count &lt; 5) {
     if (count === 3) {
         break;
     }
@@ -3134,7 +3134,7 @@ You can also use continue inside a while loop:
 
 let count = 0;
 
-while (count < 5) {
+while (count &lt; 5) {
     count++;
 
     if (count === 3) {
@@ -3190,7 +3190,7 @@ These statements give you more control over how loops behave and are especially 
 
 برای مثال:
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i &lt; 5; i++) {
     if (i === 3) {
         break;
     }
@@ -3214,7 +3214,7 @@ for (let i = 0; i < 5; i++) {
 
 let count = 0;
 
-while (count < 10) {
+while (count &lt; 10) {
     if (count === 5) {
         break;
     }
@@ -3231,7 +3231,7 @@ while (count < 10) {
 
 برای مثال:
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i &lt; 5; i++) {
     if (i === 2) {
         continue;
     }
@@ -3259,7 +3259,7 @@ continue → فقط تکرار فعلی را رد می‌کند
 
 let count = 0;
 
-while (count < 5) {
+while (count &lt; 5) {
     if (count === 3) {
         break;
     }
@@ -3274,7 +3274,7 @@ while (count < 5) {
 
 let count = 0;
 
-while (count < 5) {
+while (count &lt; 5) {
     count++;
 
     if (count === 3) {
@@ -4370,7 +4370,7 @@ The returned String is stored in username.
 A function can return a Boolean as well:
 
 function isAdult(age) {
-    return age >= 18;
+    return age &gt;= 18;
 }
 
 let result = isAdult(20);
@@ -4534,7 +4534,7 @@ console.log(username);
 یک تابع حتی می‌تواند مقدار Boolean برگرداند:
 
 function isAdult(age) {
-    return age >= 18;
+    return age &gt;= 18;
 }
 
 let result = isAdult(20);
@@ -4749,11 +4749,11 @@ const greet = function() {
 
 The same function can be written as an arrow function:
 
-const greet = () => {
+const greet = () =&gt; {
     console.log("Hello!");
 };
 
-The => symbol is called the arrow syntax.
+The =&gt; symbol is called the arrow syntax.
 
 The function is still stored in the greet variable, so you call it the same way:
 
@@ -4761,7 +4761,7 @@ greet();
 
 Arrow functions can also have parameters:
 
-const greet = (name) => {
+const greet = (name) =&gt; {
     console.log("Hello " + name);
 };
 
@@ -4771,7 +4771,7 @@ The parameter is placed inside the parentheses, just like with a regular functio
 
 Arrow functions can return values:
 
-const add = (a, b) => {
+const add = (a, b) =&gt; {
     return a + b;
 };
 
@@ -4781,7 +4781,7 @@ This works just like a regular function that uses return.
 
 When an arrow function has only one parameter, the parentheses can be omitted:
 
-const double = number => {
+const double = number =&gt; {
     return number * 2;
 };
 
@@ -4789,7 +4789,7 @@ console.log(double(5));
 
 However, keeping the parentheses is also valid:
 
-const double = (number) => {
+const double = (number) =&gt; {
     return number * 2;
 };
 
@@ -4797,17 +4797,17 @@ Arrow functions can also use an even shorter return syntax when the function con
 
 For example:
 
-const add = (a, b) => a + b;
+const add = (a, b) =&gt; a + b;
 
 This automatically returns the result of a + b.
 
 So these two functions produce the same result:
 
-const add = (a, b) => {
+const add = (a, b) =&gt; {
     return a + b;
 };
 
-const add = (a, b) => a + b;
+const add = (a, b) =&gt; a + b;
 
 The shorter version is called an implicit return because the return keyword is not written.
 
@@ -4815,11 +4815,11 @@ A common beginner mistake is forgetting that curly braces change how the return 
 
 This returns a value:
 
-const multiply = (a, b) => a * b;
+const multiply = (a, b) =&gt; a * b;
 
 But when curly braces are used, you normally need return:
 
-const multiply = (a, b) => {
+const multiply = (a, b) =&gt; {
     return a * b;
 };
 
@@ -4828,7 +4828,7 @@ Arrow functions are especially common in modern JavaScript and become very usefu
 Quick rule to remember:
 
 Regular function expression → function() { ... }
-Arrow function → () => { ... }
+Arrow function → () =&gt; { ... }
 
 Both can be stored in variables, receive parameters, and return values.`,
             fa: `تابع Arrow یا Arrow Function روش کوتاه‌تری برای نوشتن Function Expression در JavaScript است.
@@ -4841,11 +4841,11 @@ const greet = function() {
 
 همین تابع را می‌توان به شکل Arrow Function نوشت:
 
-const greet = () => {
+const greet = () =&gt; {
     console.log("Hello!");
 };
 
-علامت => در این ساختار بخشی از سینتکس Arrow Function است.
+علامت =&gt; در این ساختار بخشی از سینتکس Arrow Function است.
 
 این تابع همچنان داخل متغیر greet ذخیره شده است، بنابراین به همان شکل فراخوانی می‌شود:
 
@@ -4853,7 +4853,7 @@ greet();
 
 Arrow Function می‌تواند پارامتر هم داشته باشد:
 
-const greet = (name) => {
+const greet = (name) =&gt; {
     console.log("Hello " + name);
 };
 
@@ -4863,7 +4863,7 @@ greet("Ali");
 
 Arrow Function می‌تواند مقدار هم برگرداند:
 
-const add = (a, b) => {
+const add = (a, b) =&gt; {
     return a + b;
 };
 
@@ -4873,7 +4873,7 @@ console.log(add(10, 5));
 
 وقتی Arrow Function فقط یک پارامتر داشته باشد، می‌توان پرانتز آن را حذف کرد:
 
-const double = number => {
+const double = number =&gt; {
     return number * 2;
 };
 
@@ -4881,7 +4881,7 @@ console.log(double(5));
 
 البته استفاده از پرانتز همچنان کاملاً معتبر است:
 
-const double = (number) => {
+const double = (number) =&gt; {
     return number * 2;
 };
 
@@ -4889,17 +4889,17 @@ Arrow Function می‌تواند در شرایط خاص حتی کوتاه‌تر
 
 برای مثال:
 
-const add = (a, b) => a + b;
+const add = (a, b) =&gt; a + b;
 
 در این حالت نتیجه a + b به‌صورت خودکار برگردانده می‌شود.
 
 بنابراین دو تابع زیر نتیجه یکسانی دارند:
 
-const add = (a, b) => {
+const add = (a, b) =&gt; {
     return a + b;
 };
 
-const add = (a, b) => a + b;
+const add = (a, b) =&gt; a + b;
 
 در نسخه کوتاه‌تر از Implicit Return استفاده شده است، زیرا کلمه return نوشته نشده اما مقدار expression به‌صورت خودکار برگردانده می‌شود.
 
@@ -4907,11 +4907,11 @@ const add = (a, b) => a + b;
 
 این تابع یک مقدار برمی‌گرداند:
 
-const multiply = (a, b) => a * b;
+const multiply = (a, b) =&gt; a * b;
 
 اما وقتی از آکولاد استفاده می‌کنیم، معمولاً باید return را به‌صورت صریح بنویسیم:
 
-const multiply = (a, b) => {
+const multiply = (a, b) =&gt; {
     return a * b;
 };
 
@@ -4920,7 +4920,7 @@ Arrow Functionها در JavaScript مدرن بسیار رایج هستند و ز
 قانون ساده برای به خاطر سپردن:
 
 Function Expression معمولی → function() { ... }
-Arrow Function → () => { ... }
+Arrow Function → () =&gt; { ... }
 
 هر دو می‌توانند داخل متغیر ذخیره شوند، پارامتر دریافت کنند و مقدار برگردانند.`
         }
@@ -5149,7 +5149,7 @@ function execute(callback) {
     callback();
 }
 
-execute(() => {
+execute(() =&gt; {
     console.log("Hello!");
 });
 
@@ -5254,7 +5254,7 @@ function execute(callback) {
     callback();
 }
 
-execute(() => {
+execute(() =&gt; {
     console.log("Hello!");
 });
 
@@ -6117,7 +6117,7 @@ You can use a for loop for this:
 
 let fruits = ["Apple", "Banana", "Orange"];
 
-for (let i = 0; i < fruits.length; i++) {
+for (let i = 0; i &lt; fruits.length; i++) {
     console.log(fruits[i]);
 }
 
@@ -6129,7 +6129,7 @@ Orange
 
 The loop starts at index 0 and continues while i is smaller than the Array length.
 
-Using i < fruits.length is important because the last valid index is one less than the length.
+Using i &lt; fruits.length is important because the last valid index is one less than the length.
 
 You can also use a for...of loop to access each value directly:
 
@@ -6147,7 +6147,7 @@ Orange
 
 With a regular for loop, you work with the index:
 
-for (let i = 0; i < fruits.length; i++) {
+for (let i = 0; i &lt; fruits.length; i++) {
     console.log(fruits[i]);
 }
 
@@ -6178,7 +6178,7 @@ For example:
 let scores = [45, 80, 92, 60];
 
 for (let score of scores) {
-    if (score >= 60) {
+    if (score &gt;= 60) {
         console.log(score);
     }
 }
@@ -6191,15 +6191,15 @@ For example:
 
 let numbers = [10, 20, 30];
 
-for (let i = 0; i <= numbers.length; i++) {
+for (let i = 0; i &lt;= numbers.length; i++) {
     console.log(numbers[i]);
 }
 
-The condition should normally use < rather than <=.
+The condition should normally use &lt; rather than &lt;=.
 
 The valid indexes are 0, 1, and 2, while the length is 3.
 
-Using <= allows i to become 3, and numbers[3] is undefined.
+Using &lt;= allows i to become 3, and numbers[3] is undefined.
 
 Quick rule:
 
@@ -6249,7 +6249,7 @@ if (fruits.includes("Banana")) {
 
 let fruits = ["Apple", "Banana", "Orange"];
 
-for (let i = 0; i < fruits.length; i++) {
+for (let i = 0; i &lt; fruits.length; i++) {
     console.log(fruits[i]);
 }
 
@@ -6261,7 +6261,7 @@ Orange
 
 حلقه از Index شماره 0 شروع می‌شود و تا زمانی ادامه پیدا می‌کند که i از length کوچک‌تر باشد.
 
-استفاده از i < fruits.length مهم است، زیرا آخرین Index معتبر همیشه یک واحد کمتر از length است.
+استفاده از i &lt; fruits.length مهم است، زیرا آخرین Index معتبر همیشه یک واحد کمتر از length است.
 
 می‌توان از for...of نیز برای دسترسی مستقیم به هر مقدار استفاده کرد:
 
@@ -6279,7 +6279,7 @@ Orange
 
 در یک for loop معمولی، با Index کار می‌کنیم:
 
-for (let i = 0; i < fruits.length; i++) {
+for (let i = 0; i &lt; fruits.length; i++) {
     console.log(fruits[i]);
 }
 
@@ -6310,7 +6310,7 @@ for (let number of numbers) {
 let scores = [45, 80, 92, 60];
 
 for (let score of scores) {
-    if (score >= 60) {
+    if (score &gt;= 60) {
         console.log(score);
     }
 }
@@ -6323,15 +6323,15 @@ for (let score of scores) {
 
 let numbers = [10, 20, 30];
 
-for (let i = 0; i <= numbers.length; i++) {
+for (let i = 0; i &lt;= numbers.length; i++) {
     console.log(numbers[i]);
 }
 
-در حالت معمول باید از < به‌جای <= استفاده شود.
+در حالت معمول باید از &lt; به‌جای &lt;= استفاده شود.
 
 Indexهای معتبر این Array برابر 0، 1 و 2 هستند، در حالی که length برابر 3 است.
 
-استفاده از <= باعث می‌شود i به 3 برسد و numbers[3] مقدار undefined را برمی‌گرداند.
+استفاده از &lt;= باعث می‌شود i به 3 برسد و numbers[3] مقدار undefined را برمی‌گرداند.
 
 قانون ساده:
 
@@ -6371,7 +6371,7 @@ Orange
 
 You can also use an arrow function:
 
-fruits.forEach((fruit) => {
+fruits.forEach((fruit) =&gt; {
     console.log(fruit);
 });
 
@@ -6383,7 +6383,7 @@ For example:
 
 let numbers = [1, 2, 3];
 
-let doubled = numbers.map((number) => {
+let doubled = numbers.map((number) =&gt; {
     return number * 2;
 });
 
@@ -6408,8 +6408,8 @@ For example:
 
 let numbers = [10, 15, 20, 25];
 
-let bigNumbers = numbers.filter((number) => {
-    return number >= 20;
+let bigNumbers = numbers.filter((number) =&gt; {
+    return number &gt;= 20;
 });
 
 console.log(bigNumbers);
@@ -6429,8 +6429,8 @@ For example:
 
 let numbers = [10, 15, 20, 25];
 
-let result = numbers.find((number) => {
-    return number > 18;
+let result = numbers.find((number) =&gt; {
+    return number &gt; 18;
 });
 
 console.log(result);
@@ -6447,8 +6447,8 @@ For example:
 
 let numbers = [10, 15, 20];
 
-let result = numbers.find((number) => {
-    return number > 50;
+let result = numbers.find((number) =&gt; {
+    return number &gt; 50;
 });
 
 console.log(result);
@@ -6463,8 +6463,8 @@ For example:
 
 let names = ["Ali", "Sara", "John"];
 
-let longNames = names.filter((name) => {
-    return name.length > 3;
+let longNames = names.filter((name) =&gt; {
+    return name.length &gt; 3;
 });
 
 This creates a new Array containing the names with more than three characters.
@@ -6509,7 +6509,7 @@ Orange
 
 می‌توان از Arrow Function نیز استفاده کرد:
 
-fruits.forEach((fruit) => {
+fruits.forEach((fruit) =&gt; {
     console.log(fruit);
 });
 
@@ -6521,7 +6521,7 @@ fruits.forEach((fruit) => {
 
 let numbers = [1, 2, 3];
 
-let doubled = numbers.map((number) => {
+let doubled = numbers.map((number) =&gt; {
     return number * 2;
 });
 
@@ -6546,8 +6546,8 @@ map() → ساخت یک Array جدید از مقدارهای برگشتی
 
 let numbers = [10, 15, 20, 25];
 
-let bigNumbers = numbers.filter((number) => {
-    return number >= 20;
+let bigNumbers = numbers.filter((number) =&gt; {
+    return number &gt;= 20;
 });
 
 console.log(bigNumbers);
@@ -6567,8 +6567,8 @@ false → مقدار از Array جدید حذف می‌شود
 
 let numbers = [10, 15, 20, 25];
 
-let result = numbers.find((number) => {
-    return number > 18;
+let result = numbers.find((number) =&gt; {
+    return number &gt; 18;
 });
 
 console.log(result);
@@ -6585,8 +6585,8 @@ console.log(result);
 
 let numbers = [10, 15, 20];
 
-let result = numbers.find((number) => {
-    return number > 50;
+let result = numbers.find((number) =&gt; {
+    return number &gt; 50;
 });
 
 console.log(result);
@@ -6601,8 +6601,8 @@ undefined
 
 let names = ["Ali", "Sara", "John"];
 
-let longNames = names.filter((name) => {
-    return name.length > 3;
+let longNames = names.filter((name) =&gt; {
+    return name.length &gt; 3;
 });
 
 این کد یک Array جدید شامل نام‌هایی ایجاد می‌کند که بیشتر از سه کاراکتر دارند.
@@ -9025,7 +9025,7 @@ Block Scope commonly appears with if statements and loops.
 
 For example:
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i &lt; 3; i++) {
     console.log(i);
 }
 
@@ -9327,7 +9327,7 @@ Block Scope معمولاً در If Statementها و Loopها دیده می‌ش�
 
 برای مثال:
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i &lt; 3; i++) {
     console.log(i);
 }
 
@@ -10167,7 +10167,7 @@ When a browser loads HTML, it creates a DOM representation of the page.
 
 For example:
 
-<h1 id="title">Hello</h1>
+&lt;h1&gt; id="title"&gt;Hello&lt;/h1&gt;
 
 JavaScript can access this element through the DOM.
 
@@ -10183,7 +10183,7 @@ For example:
 
 let title = document.getElementById("title");
 
-Now title refers to the <h1> element.
+Now title refers to the &lt;h1&gt; element.
 
 You can then work with that element using JavaScript.
 
@@ -10217,8 +10217,8 @@ This returns a collection containing all matching elements.
 
 For example, if the HTML contains:
 
-<p class="item">One</p>
-<p class="item">Two</p>
+&lt;p&gt; class="item"&gt;One&lt;/p&gt;
+&lt;p&gt; class="item"&gt;Two&lt;/p&gt;
 
 querySelectorAll(".item") selects both elements.
 
@@ -10266,7 +10266,7 @@ The DOM is the bridge between JavaScript and the HTML page. In the next lessons,
 
 برای مثال:
 
-<h1 id="title">Hello</h1>
+&lt;h1&gt; id="title"&gt;Hello&lt;/h1&gt;
 
 JavaScript می‌تواند از طریق DOM به این Element دسترسی پیدا کند.
 
@@ -10316,8 +10316,8 @@ let items = document.querySelectorAll(".item");
 
 برای مثال اگر HTML شامل موارد زیر باشد:
 
-<p class="item">One</p>
-<p class="item">Two</p>
+&lt;p&gt; class="item"&gt;One&lt;/p&gt;
+&lt;p&gt; class="item"&gt;Two&lt;/p&gt;
 
 عبارت querySelectorAll(".item") هر دو Element را انتخاب می‌کند.
 
@@ -10865,7 +10865,7 @@ The second argument is a function that runs when the event happens.
 
 For example:
 
-button.addEventListener("click", () => {
+button.addEventListener("click", () =&gt; {
     console.log("Hello");
 });
 
@@ -10879,11 +10879,11 @@ You can listen for different events separately.
 
 For example:
 
-button.addEventListener("click", () => {
+button.addEventListener("click", () =&gt; {
     console.log("Clicked");
 });
 
-button.addEventListener("mouseover", () => {
+button.addEventListener("mouseover", () =&gt; {
     console.log("Mouse over");
 });
 
@@ -10963,7 +10963,7 @@ button.addEventListener("click", function() {
 
 برای مثال:
 
-button.addEventListener("click", () => {
+button.addEventListener("click", () =&gt; {
     console.log("Hello");
 });
 
@@ -10977,11 +10977,11 @@ button.addEventListener("click", () => {
 
 برای مثال:
 
-button.addEventListener("click", () => {
+button.addEventListener("click", () =&gt; {
     console.log("Clicked");
 });
 
-button.addEventListener("mouseover", () => {
+button.addEventListener("mouseover", () =&gt; {
     console.log("Mouse over");
 });
 
@@ -11048,7 +11048,7 @@ The "input" event runs whenever the value of an input changes.
 
 For example:
 
-input.addEventListener("input", () => {
+input.addEventListener("input", () =&gt; {
     console.log(input.value);
 });
 
@@ -11064,7 +11064,7 @@ For example:
 
 let form = document.querySelector("form");
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", (event) =&gt; {
     event.preventDefault();
     console.log("Form submitted");
 });
@@ -11077,7 +11077,7 @@ When an event occurs, JavaScript can provide information about that event throug
 
 The event object is commonly received as a parameter:
 
-button.addEventListener("click", (event) => {
+button.addEventListener("click", (event) =&gt; {
     console.log(event);
 });
 
@@ -11147,7 +11147,7 @@ console.log(input.value);
 
 برای مثال:
 
-input.addEventListener("input", () => {
+input.addEventListener("input", () =&gt; {
     console.log(input.value);
 });
 
@@ -11163,7 +11163,7 @@ Formها دارای Event مربوط به "submit" هستند.
 
 let form = document.querySelector("form");
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", (event) =&gt; {
     event.preventDefault();
     console.log("Form submitted");
 });
@@ -11176,7 +11176,7 @@ form.addEventListener("submit", (event) => {
 
 برای دریافت آن، معمولاً Event Object را به عنوان Parameter دریافت می‌کنیم:
 
-button.addEventListener("click", (event) => {
+button.addEventListener("click", (event) =&gt; {
     console.log(event);
 });
 
@@ -11513,7 +11513,7 @@ You can use .then() to handle the response.
 For example:
 
 fetch("https://example.com/data")
-    .then((response) => {
+    .then((response) =&gt; {
         console.log(response);
     });
 
@@ -11528,8 +11528,8 @@ When an API returns JSON data, you can convert the response body into a JavaScri
 For example:
 
 fetch("https://example.com/data")
-    .then((response) => response.json())
-    .then((data) => {
+    .then((response) =&gt; response.json())
+    .then((data) =&gt; {
         console.log(data);
     });
 
@@ -11622,7 +11622,7 @@ fetch("https://example.com/data");
 برای مثال:
 
 fetch("https://example.com/data")
-    .then((response) => {
+    .then((response) =&gt; {
         console.log(response);
     });
 
@@ -11637,8 +11637,8 @@ fetch("https://example.com/data")
 برای مثال:
 
 fetch("https://example.com/data")
-    .then((response) => response.json())
-    .then((data) => {
+    .then((response) =&gt; response.json())
+    .then((data) =&gt; {
         console.log(data);
     });
 
@@ -11744,11 +11744,11 @@ A Promise can be handled with .then() and .catch().
 For example:
 
 fetch("/users")
-    .then((response) => response.json())
-    .then((data) => {
+    .then((response) =&gt; response.json())
+    .then((data) =&gt; {
         console.log(data);
     })
-    .catch((error) => {
+    .catch((error) =&gt; {
         console.log(error);
     });
 
@@ -11867,11 +11867,11 @@ rejected → با خطا مواجه شده
 برای مثال:
 
 fetch("/users")
-    .then((response) => response.json())
-    .then((data) => {
+    .then((response) =&gt; response.json())
+    .then((data) =&gt; {
         console.log(data);
     })
-    .catch((error) => {
+    .catch((error) =&gt; {
         console.log(error);
     });
 
