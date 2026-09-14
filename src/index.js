@@ -4184,6 +4184,58 @@ Good luck — and have fun coding! 🚀`,
 
                 return new Response("OK");
             }
+            // Admin Broadcast Command
+            if (message.startsWith("/broadcast")) {
+                // Replace with your actual Telegram ID
+                const ADMIN_ID = "111208578";
+
+                if (String(chatId) !== ADMIN_ID) {
+                    await sendMessage(chatId, env, "❌ You are not authorized to use this command.");
+                    return new Response("OK");
+                }
+
+                // Extract the message after "/broadcast "
+                const broadcastText = message.replace("/broadcast", "").trim();
+
+                if (!broadcastText) {
+                    await sendMessage(chatId, env, "⚠️ Please provide a message.\n\nExample:\n`/broadcast Hello everyone!`");
+                    return new Response("OK");
+                }
+
+                await sendMessage(chatId, env, "📢 Broadcasting message to all users...");
+
+                // Fetch all users from the database
+                const allUsers = await env.learning_js_bot_db
+                    .prepare("SELECT telegram_id FROM users")
+                    .all();
+
+                let successCount = 0;
+                let failCount = 0;
+
+                // Loop through each user and send the message
+                for (const user of allUsers.results) {
+                    const wasSuccessful = await sendMessage(
+                        user.telegram_id,
+                        env,
+                        `📢 Announcement:\n\n${broadcastText}`
+                    );
+
+                    if (wasSuccessful) {
+                        successCount++;
+                    } else {
+                        failCount++; // Usually means the user blocked the bot
+                    }
+                }
+
+                // Send a final report to the admin
+                await sendMessage(
+                    chatId,
+                    env,
+                    `✅ Broadcast complete!\n\n✅ Sent: ${successCount}\n❌ Failed (blocked): ${failCount}`
+                );
+
+                return new Response("OK");
+            }
 
             const resetConfirmation = await env.learning_js_bot_db
                 .prepare(
